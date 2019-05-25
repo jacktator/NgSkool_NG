@@ -21,12 +21,12 @@ For more info on this Starter Kit, please see [Thier Docs](https://github.com/ng
 Features / Todos:
 
 [ ] BootStrap Project
+[x] Create Data Model (Name, Address, Amount of Students)
 [ ] Create List View
 [ ] Create Search
 [ ] Create Filter
 [ ] Create Authentication Modal
 [ ] Create Add School
-[ ] Name, Address, Amount of Students
 [ ] Persistence & Pre Loading
 [ ] Create Detail View (Depending on Time)
 
