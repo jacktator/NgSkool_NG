@@ -10,4 +10,6 @@ TOC:
 
 - [Assignment](./docs/assignment.md)
 - [Planning](./docs/planning.md)
-- [Issues](./docs/issues.md)
+- [Roadmap](./docs/roadmap.md)
+- [Known Issues](./docs/issues.md)
+- [Conclusion](./docs/conclusion.md)

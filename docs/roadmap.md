@@ -21,16 +21,16 @@
 
 ### Amazon DynamoDB
 
-[ ] School
+[x] School
+
+### Amazon API Gateway
+
+[ ] Create, Read, Update, Delete Schools
 [ ] Name
 [ ] Address
 [ ] Amount of Students
 [ ] Administrators
 [ ] Keywords
-
-### Amazon API Gateway
-
-[ ] Create, Read, Update, Delete Schools
 [ ] Postman API
 [ ] Postman Collection (Depending on Time)
 
