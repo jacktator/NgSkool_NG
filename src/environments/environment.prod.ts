@@ -11,5 +11,13 @@ export const environment = {
   version: env.npm_package_version,
   serverUrl: 'https://api.chucknorris.io',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US', 'fr-FR']
+  supportedLanguages: ['en-US', 'fr-FR'],
+  cognito: {
+    userPoolId: 'us-east-2_ucSu9Eltv', // TODO: Use a different Production User Pool
+    userPoolClientId: 'fr91tqd219k8j8d53eu57pacj', // TODO: Use a different Production App Client
+    region: 'us-east-2'
+  },
+  api: {
+    invokeUrl: '' // e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod',
+  }
 };

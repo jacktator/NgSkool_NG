@@ -20,7 +20,7 @@ For more info on this Starter Kit, please see [Thier Docs](https://github.com/ng
 
 Features / Todos:
 
-[ ] BootStrap Project
+[x] BootStrap Project
 [x] Create Data Model (Name, Address, Amount of Students)
 [ ] Create List View
 [ ] Create Search
@@ -40,7 +40,9 @@ However, since we need to consider performance and scalability, and we wanna get
 
 For more info on AWS Serverless Web App, please see [AWS Tutorial](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/).
 
-[ ] AWS Cognito
+[x][aws cognito](./backend.md#amazon-cognito)
+[x] Create User Pool - NgSkoolUsers created.
+[x] Create App Client - NgSkoolWebApp created.
 [ ] AWS DynamoDB
 [ ] School
 [ ] Name, Address, Amount of Students, Administrators, Keywords
