@@ -1,6 +1,6 @@
 # NgSkool
 
-This repo contains the Front End code for a technical test for a very innovative company in Sydney.
+This repo contains the Front End code for a technical test for a very innovative company in Sydney. For the Back End, please see [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda).
 
 This assignment is intended to be completed in 48 hours.
 

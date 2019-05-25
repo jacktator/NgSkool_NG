@@ -28,6 +28,8 @@ However, since we need to consider performance and scalability, and we wanna get
 
 For more info on AWS Serverless Web App, please see [AWS Tutorial](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/).
 
+The coding has been moved into its own repository at [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda).
+
 # Hosting
 
 As this project only requires a static file hosting for Angular+BootStrap, I'd be considering between AWS S3 & [Github Pages](https://help.github.com/en/articles/what-is-github-pages), TBD.
