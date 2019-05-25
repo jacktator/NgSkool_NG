@@ -66,6 +66,7 @@ Using [JSDoc](https://github.com/jsdoc/jsdoc) flavour.
 
 Mainly using [WebStorm](https://www.jetbrains.com/webstorm/) and its plugins to code front-end.
 [ ] Configure Project
+[x] Add Plugins (.ignore, Angular)
 [ ] Live Reload
 [ ] TypeScript Lint
 [ ] SASS Live Compilation (Depending on Mac Performance)
