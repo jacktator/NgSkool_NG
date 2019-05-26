@@ -14,25 +14,7 @@
 
 ## Backend
 
-### Amazon Cognito
-
-[x] Create User Pool - NgSkoolUsers created.
-[x] Create App Client - NgSkoolWebApp created.
-
-### Amazon DynamoDB
-
-[x] School
-
-### Amazon API Gateway
-
-[ ] Create, Read, Update, Delete Schools
-[ ] Name
-[ ] Address
-[ ] Amount of Students
-[ ] Administrators
-[ ] Keywords
-[ ] Postman API
-[ ] Postman Collection (Depending on Time)
+See the roadmap in [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda#roadmap).
 
 ## Hosting
 

@@ -26,9 +26,7 @@ For small-scale projects, first I'd think of would be WordPress + CPT + ACF + RE
 
 However, since we need to consider performance and scalability, and we wanna get it up and running ASAP, I'd go with AWS Serverless architecture.
 
-For more info on AWS Serverless Web App, please see [AWS Tutorial](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/).
-
-The coding has been moved into its own repository at [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda).
+For more info please see Back End Repo at [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda).
 
 # Hosting
 
