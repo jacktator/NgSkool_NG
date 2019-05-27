@@ -12,6 +12,7 @@
   <div *ngIf="schoolArray != undefined" class="row">
     <div class="col-md-9">
       <div class="row">
+        <!--        <div *ngFor="let school of schoolArray | schoolfilter:keyword" class="col-sm-4">-->
         <div *ngFor="let school of schoolArray" class="col-sm-4">
           <div class="card">
             <div class="card-body">
@@ -36,7 +37,7 @@
       <form>
         <div class="form-group">
           <label for="keyword">School Filter</label>
-          <input type="text" class="form-control" id="keyword" placeholder="Turramurra..." />
+          <input type="text" class="form-control" [(ngModel)]="keywrod" id="keyword" placeholder="Turramurra..." />
           <small id="emailHelp" class="form-text text-muted">You can filter for school name and address.</small>
         </div>
         <select class="form-control">

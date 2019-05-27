@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   schoolArray: Array<School> | undefined;
   isLoading = false;
   states = ['NSW', 'VIC', 'ACT', 'QLD', 'SA', 'WA', 'TAS'];
+  keyword = undefined;
 
   // constructor(private quoteService: QuoteService) {}
   constructor(private schoolService: SchoolService) {}
