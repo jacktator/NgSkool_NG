@@ -1,6 +1,9 @@
 /**
  * Data Model class for 'Location' object.
  *
+ * @todo Convert data usage of interface into class.
+ * E.g. Instead of using List<LocationInterface> into List<LocationClass>
+ *
  * @author Jacktator
  * @since 1.0.0
  */

@@ -6,6 +6,11 @@
     </h1>
     <p translate>HOME_DESC</p>
     <app-loader [isLoading]="isLoading"></app-loader>
-    <q [hidden]="isLoading">{{ quote }}</q>
+    <!--    <q [hidden]="isLoading">{{ quote }}</q>-->
+    <ul class="heroes">
+      <li *ngFor="let school of schoolArray">
+        <span class="badge">{{ school.name }}</span> {{ school.address }}
+      </li>
+    </ul>
   </div>
 </div>

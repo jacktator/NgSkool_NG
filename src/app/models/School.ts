@@ -1,6 +1,8 @@
 /**
  * Data Model class for 'School' object.
  *
+ * @todo Convert data usage of interface into class. E.g. Instead of using List<SchoolInterface> into List<SchoolClass>
+ *
  * @author Jacktator
  * @since 1.0.0
  */
@@ -39,7 +41,8 @@ export class SKSchool {
    * Sets the name of 'School' object.
    *
    * @remarks
-   * This method is the Setter method for name property. This gives you a way of having finer-grained control over how a member is accessed on each object.
+   * This method is the Setter method for name property.
+   * This gives you a way of having finer-grained control over how a member is accessed on each object.
    *
    * @param newName the new name for 'School' object.
    *
@@ -48,11 +51,11 @@ export class SKSchool {
    * @since 1.0.0
    */
   public set name(newName: string) {
-    if (true == true) {
+    if (true === true) {
       // TODO: Fine tune access control for setting name
       this._name = newName;
     } else {
-      console.error("Error: Unauthorized update of property: 'name' for 'School' object.");
+      console.error('Error: Unauthorized update of property: "name" for "School" object.');
     }
   }
 

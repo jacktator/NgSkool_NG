@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
-import { QuoteService } from './quote.service';
+// import { QuoteService } from './quote.service';
+import { School, SchoolService } from './school.service';
 
 @Component({
   selector: 'app-home',
@@ -9,22 +10,38 @@ import { QuoteService } from './quote.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  quote: string | undefined;
+  // quote: string | undefined;
+  schoolArray: Array<School> | undefined;
   isLoading = false;
 
-  constructor(private quoteService: QuoteService) {}
+  // constructor(private quoteService: QuoteService) {}
+  constructor(private schoolService: SchoolService) {}
 
   ngOnInit() {
+    // Show Loading Screen.
     this.isLoading = true;
-    this.quoteService
-      .getRandomQuote({ category: 'dev' })
+
+    this.schoolService
+      .listSchools()
       .pipe(
         finalize(() => {
+          // Stop loading, regardless the result.
           this.isLoading = false;
         })
       )
-      .subscribe((quote: string) => {
-        this.quote = quote;
+      .subscribe((downloadedSchools: Array<School>) => {
+        this.schoolArray = downloadedSchools;
       });
+
+    // this.quoteService
+    //   .getRandomQuote({ category: 'dev' })
+    //   .pipe(
+    //     finalize(() => {
+    //       this.isLoading = false;
+    //     })
+    //   )
+    //   .subscribe((quote: string) => {
+    //     this.quote = quote;
+    //   });
   }
 }

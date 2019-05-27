@@ -13,13 +13,13 @@ import env from './.env';
 export const environment = {
   production: false,
   version: env.npm_package_version + '-dev',
-  serverUrl: '/api',
+  serverUrl: 'http://localhost:3000',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
   cognito: {
     userPoolId: 'us-east-2_ucSu9Eltv',
     userPoolClientId: 'fr91tqd219k8j8d53eu57pacj',
-    region: 'us-east-2'
+    region: 'ap-southeast-2'
   },
   api: {
     invokeUrl: '' // e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod',
