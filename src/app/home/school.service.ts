@@ -35,7 +35,7 @@ export class SchoolService {
       .cache(true)
       .get(routes.list(params))
       .pipe(
-        map((body: any) => body.value),
+        map((body: any) => body),
         catchError(() => of('Error, could not list schools.'))
       );
   }

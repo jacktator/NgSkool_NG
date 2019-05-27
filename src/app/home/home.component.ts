@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   // quote: string | undefined;
   schoolArray: Array<School> | undefined;
   isLoading = false;
+  states = ['NSW', 'VIC', 'ACT', 'QLD', 'SA', 'WA', 'TAS'];
 
   // constructor(private quoteService: QuoteService) {}
   constructor(private schoolService: SchoolService) {}
