@@ -1,7 +1,8 @@
 {
   "APP_NAME": "NgSkool",
   "About": "A propos",
-  "Hello world !": "Bonjour le monde !",
+  "HOME_Title": "Bonjour le monde !",
+  "HOME_DESC": "(Todo) Looking for the best school? You've come the right place!",
   "Home": "Accueil",
   "Logged in as": "Connecté en tant que",
   "Login": "Connexion",
