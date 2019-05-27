@@ -8,21 +8,17 @@ Let's dance.
 
 # Front End
 
-On the Front End, I'm goin with Angular 7 + BootStrap 4. To save time, I am going to choose a boilerplate/scaffolding tool. TODO
+On the Front End, I'm goin with Angular 7 + BootStrap 4. To save time, I am going to choose a boilerplate/scaffolding tool.
 
-As I am going to use AWS for the backend (explanation below), I am going to choose a bootstrap that's performant and front-end only.
+A quick search leads to to [most-update to-date starter-ket](https://github.com/ngx-rocket/starter-kit). It fulfills the requirement of Angular + BootStrap. It also has a good structure setup for e2e testing and good docs. One thing it lacks is the CI config with Travis, but I can add that myself relatively easy.
 
-A quick search leads to to [most-update to-date starter-ket](https://github.com/ngx-rocket/starter-kit).
-
-It fulfills the requirement of Angular + BootStrap. It also has a good structure setup for e2e testing and good docs. One thing it lacks is the CI config with Travis, but I can add that myself relatively easy.
-
-For more info on this Starter Kit, please see [Thier Docs](https://github.com/ngx-rocket/starter-kit).
+As I am going to use AWS for the backend (explanation below), I am going to choose a FrontEnd-only scaffold based on performance.
 
 # Backend
 
 There's a few ways to do this.
 
-For small-scale projects, first I'd think of would be WordPress + CPT + ACF + REST API Filter. It's by far the fastest to setup and easy to maintain thanks to WordPress's aseesome CMS.
+For small-scale projects, first I'd think of would be WordPress + CPT + ACF + REST API Filter. It's by far the fastest to setup and easy to maintain thanks to WordPress's awesome CMS.
 
 However, since we need to consider performance and scalability, and we wanna get it up and running ASAP, I'm going with AWS Serverless architecture.
 
@@ -30,7 +26,9 @@ For more info please see Back End Repo at [NgSkool_Lambda](https://github.com/ja
 
 # Hosting
 
-As this project only requires a static file hosting for Angular+BootStrap, I'd be considering between AWS S3 & [Github Pages](https://help.github.com/en/articles/what-is-github-pages), TBD.
+As this project only requires a static file hosting for Angular+BootStrap, I'd be considering between AWS S3 & [Github Pages](https://help.github.com/en/articles/what-is-github-pages).
+
+After email confirmation, turns out only Github repo is needed. No hosting is required after all.
 
 # Documentation
 
@@ -44,12 +42,13 @@ Using [JSDoc](https://github.com/jsdoc/jsdoc) flavour.
 
 Mainly using [WebStorm](https://www.jetbrains.com/webstorm/) and its plugins to code front-end.
 
-Mainly using AWS Lambda, REST API and [Postman Collections](https://learning.getpostman.com/docs/postman/collections/creating_collections/) to manage APIs.
+Mainly using [Serverless](serverless.com) and [Postman Collections](https://learning.getpostman.com/docs/postman/collections/creating_collections/) to manage REST APIs.
 
 # Version Control
 
-Git & Github.
-Plan is to create branches for features, and merge to master only for CI/CD.
+Git & Github. Plan is to create branches for features, and merge to master only for CI/CD.
+
+However since I'm flying solo, I'm gonna commit directly to master.
 
 # Deployment
 
@@ -59,7 +58,7 @@ Back-End is already on AWS. Using Postman to test it.
 
 # Continuous Integration & Testing
 
-Plan is to write unit tests for adding schools. I'll try to write tests, depending on time allowance.
+Plan is to write unit tests for creating schools. I'll try to write tests, depending on time allowance.
 
 # Continuous Delivery
 
