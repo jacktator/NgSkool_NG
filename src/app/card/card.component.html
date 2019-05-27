@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{ school.name }}</h4>
+    <p class="card-text">
+      Located in <strong>{{ school.address }}, {{ school.state }}</strong
+      >.
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ school.numberOfStudents }} students goes there.</li>
+  </ul>
+  <div class="card-body">
+    <a [href]="'https://www.google.com/search?q=' + school.name" target="_blank" class="btn btn-outline-primary"
+      >Lean more.</a
+    >
+    <a [href]="'https://maps.google.com/?q=' + school.address" target="_blank" class="card-link">Direction</a>
+  </div>
+</div>
