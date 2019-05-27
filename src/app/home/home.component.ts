@@ -5,6 +5,7 @@ import { finalize } from 'rxjs/operators';
 import { School, SchoolService } from './school.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { untilDestroyed } from '@app/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   error: any;
 
   // constructor(private quoteService: QuoteService) {}
-  constructor(private schoolService: SchoolService, private formBuilder: FormBuilder) {
+  constructor(private schoolService: SchoolService, private formBuilder: FormBuilder, private toastr: ToastrService) {
     this.initializeForm();
   }
 
@@ -62,13 +63,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         newSchool => {
-          this.error = undefined;
-          console.log(`${newSchool.name} successfully created`);
+          delete this.error;
           // Append new school to schoolArray
           this.schoolArray.push(newSchool);
+          // Show a toastr
+          this.toastr.success(`Have fun!`, `${newSchool.name} created`, {
+            timeOut: 3000
+          });
         },
         error => {
-          delete this.error;
+          this.error = error;
           console.log(`Error creating school: ${error}`);
         }
       );
