@@ -2,7 +2,7 @@
 
 While it's easy to complete to technical requirement for the project, I personally think it's a good case to showcase my understanding of a good architecture of Full Stack project, and demonstrate wide range of skill.
 
-Therefore a time will be allocated in between hand in documenting and testing, and the other half in actual Full Stack Dev.
+Therefore time will be allocated in between half in documenting and testing, and the other half in actual Full Stack Dev.
 
 Let's dance.
 
