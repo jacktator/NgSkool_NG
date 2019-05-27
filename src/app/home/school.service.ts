@@ -6,7 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 const routes = {
   create: () => `/schools`,
   update: (id: string) => `/schools/${id}`,
-  list: (q?: QueryParams) => `/schools?state=${q.state}` // TODO: Enable list by context constraints
+  list: (q?: QueryParams) => (q ? `/schools?state=${q.state}` : '/schools') // TODO: Enable list by context constraints
   // get: (id: string) => `/schools/${id}`,
 };
 
