@@ -13,7 +13,7 @@ export interface RandomQuoteContext {
 }
 
 @Injectable()
-export class SchoolService {
+export class QuoteService {
   constructor(private httpClient: HttpClient) {}
 
   getRandomQuote(context: RandomQuoteContext): Observable<string> {

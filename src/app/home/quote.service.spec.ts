@@ -2,19 +2,19 @@ import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CoreModule, HttpCacheService } from '@app/core';
-import { SchoolService } from './school.service';
+import { QuoteService } from './quote.service';
 
-describe('SchoolService', () => {
-  let quoteService: SchoolService;
+describe('QuoteService', () => {
+  let quoteService: QuoteService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [CoreModule, HttpClientTestingModule],
-      providers: [HttpCacheService, SchoolService]
+      providers: [HttpCacheService, QuoteService]
     });
 
-    quoteService = TestBed.get(SchoolService);
+    quoteService = TestBed.get(QuoteService);
     httpMock = TestBed.get(HttpTestingController);
 
     const htttpCacheService = TestBed.get(HttpCacheService);
