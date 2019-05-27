@@ -3,6 +3,8 @@ import { finalize } from 'rxjs/operators';
 
 // import { QuoteService } from './quote.service';
 import { School, SchoolService } from './school.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { untilDestroyed } from '@app/core';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +15,15 @@ export class HomeComponent implements OnInit {
   // quote: string | undefined;
   schoolArray: Array<School> | undefined;
   isLoading = false;
-  states = ['NSW', 'VIC', 'ACT', 'QLD', 'SA', 'WA', 'TAS'];
-  keyword = undefined;
+  keyword: string;
+  states = ['All', 'NSW', 'VIC', 'ACT', 'QLD', 'SA', 'WA', 'TAS'];
+  selectedState = 'All';
+  newSchoolForm!: FormGroup;
 
   // constructor(private quoteService: QuoteService) {}
-  constructor(private schoolService: SchoolService) {}
+  constructor(private schoolService: SchoolService, private formBuilder: FormBuilder) {
+    this.initializeForm();
+  }
 
   ngOnInit() {
     // Show Loading Screen.
@@ -45,5 +51,37 @@ export class HomeComponent implements OnInit {
     //   .subscribe((quote: string) => {
     //     this.quote = quote;
     //   });
+  }
+
+  createSchool() {
+    // this.isLoading = true;
+    // const login$ = this.schoolService.authenticationService.login(this.loginForm.value);
+    // login$
+    //   .pipe(
+    //     finalize(() => {
+    //       this.loginForm.markAsPristine();
+    //       this.isLoading = false;
+    //     }),
+    //     untilDestroyed(this)
+    //   )
+    //   .subscribe(
+    //     credentials => {
+    //       log.debug(`${credentials.username} successfully logged in`);
+    //       this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
+    //     },
+    //     error => {
+    //       log.debug(`Login error: ${error}`);
+    //       this.error = error;
+    //     }
+    //   );
+  }
+
+  private initializeForm() {
+    this.newSchoolForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      state: ['All', Validators.required],
+      numberOfStudents: ['100', Validators.required]
+    });
   }
 }

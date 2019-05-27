@@ -9,16 +9,16 @@
     <!--    <q [hidden]="isLoading">{{ quote }}</q>-->
   </div>
   <h2>Schools</h2>
-  <div *ngIf="schoolArray != undefined" class="row">
+  <div class="row">
     <div class="col-md-9">
       <div class="row">
-        <!--        <div *ngFor="let school of schoolArray | schoolfilter:keyword" class="col-sm-4">-->
-        <div *ngFor="let school of schoolArray" class="col-sm-4">
+        <div *ngFor="let school of schoolArray | schoolfilter: keyword:selectedState; let i = index" class="col-sm-4">
+          <!--        <div *ngFor="let school of schoolArray" class="col-sm-4">-->
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">{{ school.name }}</h4>
               <p class="card-text">
-                Located in <strong>{{ school.address }}</strong
+                Located in <strong>{{ school.address }}, {{ school.state }}</strong
                 >.
               </p>
             </div>
@@ -26,29 +26,125 @@
               <li class="list-group-item">{{ school.numberOfStudents }} students goes there.</li>
             </ul>
             <div class="card-body">
-              <a [href]="'https://google.com/?q=' + school.name" target="_blank" class="btn btn-primary">Lean more.</a>
+              <a [href]="'https://google.com/?q=' + school.name" target="_blank" class="btn btn-outline-primary"
+                >Lean more.</a
+              >
               <a [href]="'https://maps.google.com/?q=' + school.address" target="_blank" class="card-link">Direction</a>
             </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div
+            *ngIf="schoolArray != undefined && (schoolArray | schoolfilter: keyword:selectedState).length == 0"
+            class="alert alert-warning"
+            role="alert"
+          >
+            This is no school at the moment. <a href="#" class="alert-link">Create a School</a> maybe?.
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-3">
-      <form>
-        <div class="form-group">
-          <label for="keyword">School Filter</label>
-          <input type="text" class="form-control" [(ngModel)]="keywrod" id="keyword" placeholder="Turramurra..." />
-          <small id="emailHelp" class="form-text text-muted">You can filter for school name and address.</small>
-        </div>
-        <select class="form-control">
-          <option *ngFor="let state of states">{{ state }}</option>
-        </select>
-      </form>
-    </div>
-  </div>
-  <div *ngIf="schoolArray != undefined && schoolArray.length == 0" class="row">
-    <div class="alert alert-warning" role="alert">
-      This is no school at the moment. <a href="#" class="alert-link">Create a School</a> maybe?.
+      <section>
+        <h4>Search for School</h4>
+        <form>
+          <div class="form-group">
+            <label for="keyword">School Filter</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="keyword"
+              id="keyword"
+              name="keyword"
+              placeholder="Turramurra..."
+            />
+            <small id="emailHelp" class="form-text text-muted">You can filter for school name and address.</small>
+          </div>
+          <div class="form-group">
+            <label for="keyword">Select State</label>
+            <select [(ngModel)]="selectedState" name="selectedState" class="form-control">
+              <option *ngFor="let state of states">{{ state }}</option>
+            </select>
+          </div>
+        </form>
+      </section>
+      <section>
+        <h4>Alternatively, do you with to create a school?</h4>
+        <form (ngSubmit)="createSchool()" [formGroup]="newSchoolForm" novalidate>
+          <div class="form-group">
+            <label for="schoolName">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              id="schoolName"
+              placeholder="Turramurra HS..."
+            />
+            <small
+              [hidden]="newSchoolForm.controls.name.valid || newSchoolForm.controls.name.untouched"
+              class="text-danger"
+              translate
+            >
+              School name is required
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="schoolAddress">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="address"
+              id="schoolAddress"
+              placeholder="Turramurra"
+            />
+            <small
+              [hidden]="newSchoolForm.controls.address.valid || newSchoolForm.controls.address.untouched"
+              class="text-danger"
+              translate
+            >
+              School address is required
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="schoolState">State</label>
+            <select name="schoolState" id="schoolState" formControlName="state" class="form-control">
+              <option *ngFor="let state of states">{{ state }}</option>
+            </select>
+            <small
+              [hidden]="newSchoolForm.controls.state.valid || newSchoolForm.controls.state.untouched"
+              class="text-danger"
+              translate
+            >
+              State is required
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="schoolStudents">How many students?</label>
+            <div class="input-group mb-2">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="numberOfStudents"
+                id="schoolStudents"
+                placeholder="100"
+              />
+              <div class="input-group-append">
+                <div class="input-group-text">Students</div>
+              </div>
+            </div>
+            <small
+              [hidden]="
+                newSchoolForm.controls.numberOfStudents.valid || newSchoolForm.controls.numberOfStudents.untouched
+              "
+              class="text-danger"
+              translate
+            >
+              Number of students is required
+            </small>
+          </div>
+        </form>
+        <button type="button" class="btn btn-primary btn-block">Create a School</button>
+      </section>
     </div>
   </div>
 </div>

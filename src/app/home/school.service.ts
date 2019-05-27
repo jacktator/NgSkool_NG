@@ -20,6 +20,7 @@ export interface QueryParams {
 
 export interface School {
   name: string;
+  state: string;
   address: string;
   numberOfStudents: number;
   createdAt: string;

@@ -12,6 +12,8 @@
   "Username": "Identifiant",
   "Username is required": "Identifiant requis",
   "Username or password incorrect.": "Identifiant ou mot de passe incorrect.",
+  "School name is required": "(Todo Translate) School name is required",
+  "School address is required": "(Todo Translate) School address is required",
   "Remember me": "Rester connecté",
   "Version": "Version"
 }
