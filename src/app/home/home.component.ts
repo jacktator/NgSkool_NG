@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 // import { QuoteService } from './quote.service';
@@ -11,7 +11,7 @@ import { untilDestroyed } from '@app/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   // quote: string | undefined;
   schoolArray: Array<School> | undefined;
   isLoading = false;
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   states = ['All', 'NSW', 'VIC', 'ACT', 'QLD', 'SA', 'WA', 'TAS'];
   selectedState = 'All';
   newSchoolForm!: FormGroup;
+  error: any;
 
   // constructor(private quoteService: QuoteService) {}
   constructor(private schoolService: SchoolService, private formBuilder: FormBuilder) {
@@ -29,6 +30,12 @@ export class HomeComponent implements OnInit {
     // Show Loading Screen.
     this.isLoading = true;
 
+    this.listSchools();
+  }
+
+  ngOnDestroy() {}
+
+  listSchools() {
     this.schoolService
       .listSchools()
       .pipe(
@@ -40,47 +47,38 @@ export class HomeComponent implements OnInit {
       .subscribe((downloadedSchools: Array<School>) => {
         this.schoolArray = downloadedSchools;
       });
-
-    // this.quoteService
-    //   .getRandomQuote({ category: 'dev' })
-    //   .pipe(
-    //     finalize(() => {
-    //       this.isLoading = false;
-    //     })
-    //   )
-    //   .subscribe((quote: string) => {
-    //     this.quote = quote;
-    //   });
   }
 
   createSchool() {
-    // this.isLoading = true;
-    // const login$ = this.schoolService.authenticationService.login(this.loginForm.value);
-    // login$
-    //   .pipe(
-    //     finalize(() => {
-    //       this.loginForm.markAsPristine();
-    //       this.isLoading = false;
-    //     }),
-    //     untilDestroyed(this)
-    //   )
-    //   .subscribe(
-    //     credentials => {
-    //       log.debug(`${credentials.username} successfully logged in`);
-    //       this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
-    //     },
-    //     error => {
-    //       log.debug(`Login error: ${error}`);
-    //       this.error = error;
-    //     }
-    //   );
+    this.isLoading = true;
+    const newSchool$ = this.schoolService.createSchool(this.newSchoolForm.value);
+    newSchool$
+      .pipe(
+        finalize(() => {
+          this.newSchoolForm.markAsPristine();
+          this.isLoading = false;
+        }),
+        untilDestroyed(this)
+      )
+      .subscribe(
+        newSchool => {
+          this.error = undefined;
+          console.log(`${newSchool.name} successfully created`);
+          // Append new school to schoolArray
+          this.schoolArray.push(newSchool);
+        },
+        error => {
+          delete this.error;
+          console.log(`Error creating school: ${error}`);
+        }
+      );
   }
 
   private initializeForm() {
     this.newSchoolForm = this.formBuilder.group({
       name: ['', Validators.required],
       address: ['', Validators.required],
-      state: ['All', Validators.required],
+      state: ['NSW', Validators.required],
       numberOfStudents: ['100', Validators.required]
     });
   }

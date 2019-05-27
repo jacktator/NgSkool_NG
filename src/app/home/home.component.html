@@ -71,6 +71,9 @@
       <section>
         <h4>Alternatively, do you with to create a school?</h4>
         <form (ngSubmit)="createSchool()" [formGroup]="newSchoolForm" novalidate>
+          <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
+            {{ error }}
+          </div>
           <div class="form-group">
             <label for="schoolName">Name</label>
             <input
@@ -142,8 +145,11 @@
               Number of students is required
             </small>
           </div>
+          <button class="btn btn-primary w-100" type="submit" [disabled]="newSchoolForm.invalid || isLoading">
+            <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
+            <span translate>Create a School</span>
+          </button>
         </form>
-        <button type="button" class="btn btn-primary btn-block">Create a School</button>
       </section>
     </div>
   </div>
