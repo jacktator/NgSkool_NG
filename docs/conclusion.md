@@ -28,5 +28,5 @@ A `todo` had been added to comments.
 - I'd customize bootstrap theme.sass
 - I'd better modularize components on home page
 - I'd write rest api service classes to be more robust
-- I'd write e2e tests for components and services.
 - Build Data Models, possibly build SDKs (/src/app/core/models/)
+- I'd write e2e tests for components and services.

@@ -3,7 +3,8 @@
 ## FrontEnd
 
 - [x] BootStrap Project
-- [x] Create Data Model (Name, Address, Amount of Students)
+- [x] Create Data Model Interface
+- [ ] Create Data Model Class (Depending on Time)
 - [x] Create List View
 - [ ] Create Search
 - [x] Create Filter
