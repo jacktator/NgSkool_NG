@@ -22,7 +22,7 @@
           </h4>
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
             <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
-              Username or password incorrect.
+              {{ error }}
             </div>
             <div class="form-group">
               <label class="d-block">
@@ -33,6 +33,9 @@
                   autocomplete="username"
                   [placeholder]="'Username' | translate"
                 />
+                <small class="text-muted">
+                  Demo Username: demo
+                </small>
                 <span hidden translate>Username</span>
                 <small
                   [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
@@ -51,6 +54,9 @@
                   [placeholder]="'Password' | translate"
                   required
                 />
+                <small class="text-muted">
+                  Demo Password: demo
+                </small>
                 <span hidden translate>Password</span>
                 <small
                   [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"

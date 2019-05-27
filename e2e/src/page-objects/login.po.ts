@@ -13,8 +13,8 @@ export class LoginPage {
   constructor() {}
 
   async login() {
-    await this.usernameField.sendKeys('test');
-    await this.passwordField.sendKeys('123');
+    await this.usernameField.sendKeys('demo');
+    await this.passwordField.sendKeys('demo');
     await this.loginButton.click();
   }
 }

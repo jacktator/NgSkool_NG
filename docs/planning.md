@@ -24,7 +24,7 @@ There's a few ways to do this.
 
 For small-scale projects, first I'd think of would be WordPress + CPT + ACF + REST API Filter. It's by far the fastest to setup and easy to maintain thanks to WordPress's aseesome CMS.
 
-However, since we need to consider performance and scalability, and we wanna get it up and running ASAP, I'd go with AWS Serverless architecture.
+However, since we need to consider performance and scalability, and we wanna get it up and running ASAP, I'm going with AWS Serverless architecture.
 
 For more info please see Back End Repo at [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda).
 

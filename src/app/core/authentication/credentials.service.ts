@@ -57,4 +57,13 @@ export class CredentialsService {
       localStorage.removeItem(credentialsKey);
     }
   }
+
+  /**
+   * Removes the user credentials.
+   * The credentials may be persisted across sessions by setting the `remember` parameter to true.
+   * Otherwise, the credentials are only persisted for the current session.
+   */
+  removeCredentials() {
+    this.setCredentials(undefined);
+  }
 }

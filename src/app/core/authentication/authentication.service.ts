@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 import { Credentials, CredentialsService } from './credentials.service';
 
@@ -23,13 +23,28 @@ export class AuthenticationService {
    * @return The user credentials.
    */
   login(context: LoginContext): Observable<Credentials> {
-    // Replace by proper authentication call
-    const data = {
+    const authData = {
       username: context.username,
-      token: '123456'
+      password: context.password
     };
-    this.credentialsService.setCredentials(data, context.remember);
-    return of(data);
+
+    // Begin: Replace by proper authentication call
+    let demoAuthData;
+    if (authData.username === 'demo' && authData.password === 'demo') {
+      // Correct Credential, update localStorage with new credential
+      const token = 'returned-token';
+      demoAuthData = {
+        username: context.username,
+        token: token
+      };
+      this.credentialsService.setCredentials(demoAuthData, context.remember);
+      return of(demoAuthData);
+    } else {
+      // Incorrect Credential, remove old credential from localStorage
+      this.credentialsService.removeCredentials();
+      return throwError('Username or password incorrect.');
+    }
+    // End: Replace by proper authentication call
   }
 
   /**
