@@ -9,7 +9,7 @@ import { HomeComponent } from './home.component';
 import { SchoolService } from './school.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SchoolFilterPipe } from './schoolfilter.pipe';
-import { CardComponent } from '@app/card/card.component';
+import { CardComponent } from '@app/home/card/card.component';
 // import { QuoteService } from './quote.service';
 
 @NgModule({

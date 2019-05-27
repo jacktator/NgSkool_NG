@@ -45,9 +45,16 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.isLoading = false;
         })
       )
-      .subscribe((downloadedSchools: Array<School>) => {
-        this.schoolArray = downloadedSchools;
-      });
+      .subscribe(
+        (downloadedSchools: Array<School>) => {
+          this.schoolArray = downloadedSchools;
+        },
+        error => {
+          this.error =
+            'Error listing school. Did you start the offline server? (Docs: https://github.com/jacktator/NgSkool_Lambda)';
+          console.log(`Error listing school: ${error}`);
+        }
+      );
   }
 
   createSchool() {
@@ -62,7 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(
-        newSchool => {
+        (newSchool: School) => {
           delete this.error;
           // Append new school to schoolArray
           this.schoolArray.push(newSchool);

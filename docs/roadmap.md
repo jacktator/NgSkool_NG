@@ -25,15 +25,15 @@ See the roadmap in [NgSkool_Lambda](https://github.com/jacktator/NgSkool_Lambda#
 
 ### WebStorm
 
-- [ ] Configure Project
+- [x] Configure Project
 - [x] Add Plugins (.ignore, Angular)
-- [ ] Live Reload
-- [ ] TypeScript Lint
-- [ ] SASS Live Compilation (Depending on Mac Performance)
+- [x] Live Reload
+- [x] TypeScript Lint
+- [x] SASS Live Compilation (Depending on Mac Performance)
 
 ## Deployment
 
-- [ ] Manual Deployment
+- [ ] Manual Deployment (Depending on Time)
 
 ## Continuous Integration
 
